@@ -24,7 +24,7 @@ var display = document.getElementById('display');
 
 // Event Listeners
 
-squareRoot.addEventListener('click', displayFunction);
+squareRoot.addEventListener('click', squareRootFunction);
 openParenthesis.addEventListener('click', displayFunction);
 closeParenthesis.addEventListener('click', displayFunction);
 percent.addEventListener('click', displayFunction);
@@ -43,17 +43,23 @@ three.addEventListener('click', displayFunction);
 add.addEventListener('click', displayFunction);
 zero.addEventListener('click', displayFunction);
 decimal.addEventListener('click', displayFunction);
-equals.addEventListener('click', equalFunction);
+equals.addEventListener('click', calculateFunction);
 clear.addEventListener('click', clearFunction);
 display.addEventListener('click', displayFunction);
 
 function displayFunction() {
     display.value += this.value;
+    
 }
+function calculateFunction() {
+    display.value = eval(display.value);
+}
+function squareRootFunction() {
+    display.value = Math.sqrt(display.value);
+}
+
 function clearFunction() {
     display.value = "";
 }
-function equalFunction() {
-    display.value = eval(display.value);
-}
+
 
